@@ -1,0 +1,4 @@
+outcmaes
+*.png
+*.npy
+__pycache__
