@@ -52,7 +52,7 @@ def run(i, bounds, npar):
 def main():
     bounds = [-1, 3]
     npar = 28
-    with Pool(36) as p:
+    with Pool(8) as p:
         solutions = p.map(partial(run, bounds=bounds, npar=npar), range(1000))
     solutions = np.array(solutions)
     np.save("solutions_{bounds[1]-bounds[0]}.npy", solutions, allow_pickle=False)
