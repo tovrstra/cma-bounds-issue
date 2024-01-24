@@ -1,3 +1,4 @@
-cma
+cma==3.3.0
 numpy
 matplotlib
+pre-commit

@@ -49,13 +49,17 @@ def run(i, bounds, npar):
     return xopt_b
 
 
-def main():
-    bounds = [-1, 3]
+def compute_case(bounds):
     npar = 28
     with Pool(8) as p:
         solutions = p.map(partial(run, bounds=bounds, npar=npar), range(1000))
     solutions = np.array(solutions)
-    np.save("solutions_{bounds[1]-bounds[0]}.npy", solutions, allow_pickle=False)
+    np.save(f"solutions_{bounds[1]-bounds[0]}.npy", solutions, allow_pickle=False)
+
+
+def main():
+    compute_case([-1, 3])
+    compute_case([0, 2])
 
 
 if __name__ == "__main__":
